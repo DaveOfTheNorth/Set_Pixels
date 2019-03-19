@@ -1,5 +1,8 @@
-cord1 = [1,5]
-cord2 = [3,2]
+import unicornhathd as uh
+uh.rotation(90)
+
+cord1 = [1,9]
+cord2 = [8,2]
 
 def rngpts(cord1, cord2):
     corner1 = [min(cord1[0], cord2[0]), min(cord1[1],cord2[1])]
@@ -8,16 +11,22 @@ def rngpts(cord1, cord2):
     pixels=[]
     x = coord[0]
     y = coord[1]
-    while x <= corner2[0] & y <= corner2[1]:
+    while ((x <= corner2[0]) and y <= (corner2[1] + 1)):
         while y <= corner2[1]:
-            print(coord)
-            y += 1
+            #print(coord)
             pixels.append((x,y))
-            print(corner2[1],pixels)
-        print(pixels)
+            y += 1
+            #print(corner2[0], x, corner2[1],y,pixels)
         x += 1                          
         y = coord[1]
-        
+    return pixels
         
    
-rngpts(cord1, cord2)
+points = rngpts(cord1, cord2)
+
+print(points)
+
+for x in range(len(points)):
+    uh.set_pixel(points[x], 123, 200, 100)
+    
+uh.show()
