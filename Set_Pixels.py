@@ -1,4 +1,6 @@
 import unicornhathd as uh
+from time import sleep
+
 uh.rotation(90)
 
 cord1 = [1,1]
@@ -11,7 +13,7 @@ def rngpts(cord1, cord2):
     pixels=[]
     x = coord[0]
     y = coord[1]
-    while ((x <= corner2[0]) and y <= (corner2[1] + 1)):
+    while x <= corner2[0] and y <= corner2[1] + 1:
         while y <= corner2[1]:
             #print(coord)
             pixels.append((x,y))
@@ -24,7 +26,7 @@ def rngpts(cord1, cord2):
    
 points = rngpts(cord1, cord2)
 
-#print(points)
+print(points)
 
 for x in range(len(points)):
     p = points[x]
@@ -32,4 +34,9 @@ for x in range(len(points)):
     p2 = p[1]
     uh.set_pixel(p1, p2, 123, 200 ,100)
     
+uh.show()
+
+#sleep(3)
+
+uh.clear()
 uh.show()
